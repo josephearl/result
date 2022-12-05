@@ -71,6 +71,13 @@ tasks.withType(SpotBugsTask) {
   }
 }
 
+tasks.withType(Javadoc) {
+  options {
+    addBooleanOption('Xdoclint:accessibility,html,reference,syntax', true)
+    addBooleanOption('Xwerror', true)
+  }
+}
+
 publishing {
   publications {
     mavenJava(MavenPublication) {

@@ -9,7 +9,7 @@ Instances of `Result<T>` are either an instance of `Success<T>` or `Failure<T>`.
 
 ## Using the library
 
-You will need Java 17.
+Requires Java 17.
 
 To use the library add the `https://maven.pkg.github.com/josephearl/result` repository (see
 [Using a published package](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry#using-a-published-package)
@@ -51,10 +51,22 @@ long recordPatternMatchValue =
 
 ## Developing the library
 
-You will need Java 19.
+Requires Java 19.
 
 To format code, run tests and checks:
 
 ```shell
 ./gradlew spotlessApply check
+```
+
+To generate documentation:
+
+```shell
+./gradlew javadoc
+```
+
+To publish the library to your local Maven repository:
+
+```shell
+./gradlew publishToMavenLocal
 ```

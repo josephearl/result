@@ -163,6 +163,7 @@ public sealed interface Result<T> {
    */
   Optional<T> toOptional();
 
+  /** A {@link Result} representing a successful outcome. */
   record Success<T>(@NonNull T value) implements Result<T> {
     @Override
     public boolean isSuccess() {
@@ -263,6 +264,7 @@ public sealed interface Result<T> {
     }
   }
 
+  /** A {@link Result} representing a failure. */
   record Failure<T>(@NonNull Throwable exception) implements Result<T> {
     @Override
     public boolean isSuccess() {
