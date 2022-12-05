@@ -8,7 +8,7 @@ import java.nio.file.Path;
 class ResultExample {
   void example() throws Exception {
     Result<Long> result =
-        Result.of(() -> Files.readString(Path.of(getClass().getResource("/example.txt").getFile())))
+        Result.of(() -> Files.readString(Path.of("example.txt")))
             .map((value) -> value.lines().count())
             .flatMap((value) -> Result.of(() -> 3L / value))
             .filter((value) -> value == 1L);

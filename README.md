@@ -11,11 +11,19 @@ Instances of `Result<T>` are either an instance of `Success<T>` or `Failure<T>`.
 
 You will need Java 17.
 
+To use the library add the `https://maven.pkg.github.com/josephearl/result` repository (see
+[Using a published package](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry#using-a-published-package)
+for more information) and the dependency:
+
+```groovy
+implementation 'com.waracle.result:result:1.0-SNAPSHOT'
+```
+
 Example:
 
 ```java
 Result<Long> result =
-    Result.of(() -> Files.readString(Path.of(getClass().getResource("/example.txt").getFile())))
+    Result.of(() -> Files.readString(Path.of("example.txt")))
         .map((value) -> value.lines().count())
         .flatMap((value) -> Result.of(() -> 3L / value))
         .filter((value) -> value == 1L);

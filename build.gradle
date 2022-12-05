@@ -2,6 +2,7 @@ import com.github.spotbugs.snom.SpotBugsTask
 
 plugins {
   id 'java-library'
+  id 'maven-publish'
   id 'io.freefair.lombok' version '6.5.1'
   id 'com.diffplug.spotless' version '6.12.0'
   id 'com.github.spotbugs' version '5.0.13'
@@ -25,6 +26,8 @@ dependencies {
 java {
   sourceCompatibility = JavaVersion.VERSION_17
   targetCompatibility = JavaVersion.VERSION_17
+  withJavadocJar()
+  withSourcesJar()
 }
 
 compileJava {
@@ -64,6 +67,24 @@ tasks.withType(SpotBugsTask) {
   reports {
     html {
       enabled = true
+    }
+  }
+}
+
+publishing {
+  publications {
+    mavenJava(MavenPublication) {
+      from components.java
+    }
+  }
+  repositories {
+    maven {
+      name = 'GitHubPackages'
+      url = 'https://maven.pkg.github.com/josephearl/result'
+      credentials {
+        username = System.getenv('GITHUB_ACTOR')
+        password = System.getenv('GITHUB_TOKEN')
+      }
     }
   }
 }
