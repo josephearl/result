@@ -9,7 +9,7 @@ Instances of `Result<T>` are either an instance of `Success<T>` or `Failure<T>`.
 
 ## Using the library
 
-Requires Java 17.
+Requires Java 17. View the [API documentation](https://josephearl.github.io/result/).
 
 To use the library add the `https://maven.pkg.github.com/josephearl/result` repository (see
 [Using a published package](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry#using-a-published-package)

@@ -125,7 +125,7 @@ public sealed interface Result<T> {
   /**
    * Returns the value if this is a {@link Success} or throws the {@link Throwable} if this is a
    * {@link Failure}. {@link Throwable}s that are not {@link Exception}s or {@link Error}s will be
-   * wrapped in a {@link UnsupportedThrowableException}.
+   * wrapped in an {@link UnsupportedThrowableException}.
    */
   T orElseThrow() throws Exception;
 
