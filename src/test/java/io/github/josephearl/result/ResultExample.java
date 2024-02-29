@@ -1,4 +1,4 @@
-package uk.co.josephearl.result;
+package io.github.josephearl.result;
 
 import java.nio.file.Files;
 import java.nio.file.Path;

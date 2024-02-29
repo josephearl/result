@@ -1,4 +1,4 @@
-package uk.co.josephearl.result;
+package io.github.josephearl.result;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -16,8 +16,8 @@ import nl.jqno.equalsverifier.EqualsVerifier;
 import nl.jqno.equalsverifier.Warning;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import uk.co.josephearl.result.Result.Failure;
-import uk.co.josephearl.result.Result.Success;
+import io.github.josephearl.result.Result.Failure;
+import io.github.josephearl.result.Result.Success;
 
 class ResultTest {
   @Test

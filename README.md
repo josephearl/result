@@ -16,7 +16,7 @@ To use the library add the `https://maven.pkg.github.com/josephearl/result` repo
 for more information) and the dependency:
 
 ```groovy
-implementation 'uk.co.josephearl.result:result:1.0.0-SNAPSHOT'
+implementation 'io.github.josephearl.result:result:1.0.0-SNAPSHOT'
 ```
 
 Example:
