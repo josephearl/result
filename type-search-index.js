@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"com.waracle.result","l":"Result.Failure"},{"p":"com.waracle.result","l":"Result"},{"p":"com.waracle.result","l":"Result.Success"},{"p":"com.waracle.result","l":"UnsupportedThrowableException"}];updateSearchResults();
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"uk.co.josephearl.result","l":"Result.Failure"},{"p":"uk.co.josephearl.result","l":"Result"},{"p":"uk.co.josephearl.result","l":"Result.Success"}];updateSearchResults();
