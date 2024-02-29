@@ -37,6 +37,16 @@ public sealed interface Result<T> {
     }
   }
 
+  /** Returns a {@link Success} that encapsulates the given {@code value}. */
+  static <T> Success<T> success(@NonNull T value) {
+    return new Success<>(value);
+  }
+
+  /** Returns a {@link Failure} that encapsulates the given {@code exception}. */
+  static <T> Failure<T> failure(@NonNull Throwable exception) {
+    return new Failure<>(exception);
+  }
+
   /** Returns {@code true} if this is a {@link Success}, {@code false} otherwise. */
   boolean isSuccess();
 

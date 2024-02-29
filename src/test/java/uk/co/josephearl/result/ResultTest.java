@@ -28,7 +28,7 @@ class ResultTest {
     var callable = (Callable<String>) mock(Callable.class);
     when(callable.call()).thenReturn(value);
 
-    Result<String> result = Result.of(callable);
+    var result = Result.of(callable);
 
     assertThat(result).asInstanceOf(type(Success.class)).extracting(Success::value).isSameAs(value);
   }
@@ -40,7 +40,7 @@ class ResultTest {
     var callable = (Callable<String>) mock(Callable.class);
     when(callable.call()).thenThrow(exception);
 
-    Result<String> result = Result.of(callable);
+    var result = Result.of(callable);
 
     assertThat(result)
         .asInstanceOf(type(Failure.class))
@@ -55,6 +55,32 @@ class ResultTest {
     when(callable.call()).thenThrow(exception);
 
     assertThatThrownBy(() -> Result.of(callable)).isSameAs(exception);
+  }
+
+  @Test
+  void successShouldReturnSuccess() {
+    var value = "test";
+
+    var result = Result.success(value);
+
+    assertThat(result)
+        .isInstanceOf(Success.class)
+        .asInstanceOf(type(Success.class))
+        .extracting(Success::value)
+        .isSameAs(value);
+  }
+
+  @Test
+  void failureShouldReturnFailure() {
+    var exception = new Error("test");
+
+    var result = Result.failure(exception);
+
+    assertThat(result)
+        .isInstanceOf(Failure.class)
+        .asInstanceOf(type(Failure.class))
+        .extracting(Failure::exception)
+        .isSameAs(exception);
   }
 
   @Nested
