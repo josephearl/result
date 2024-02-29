@@ -1,12 +1,10 @@
-package com.waracle.result;
+package uk.co.josephearl.result;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.InstanceOfAssertFactories.type;
 import static org.mockito.Mockito.*;
 
-import com.waracle.result.Result.Failure;
-import com.waracle.result.Result.Success;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.concurrent.Callable;
@@ -18,6 +16,8 @@ import nl.jqno.equalsverifier.EqualsVerifier;
 import nl.jqno.equalsverifier.Warning;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import uk.co.josephearl.result.Result.Failure;
+import uk.co.josephearl.result.Result.Success;
 
 class ResultTest {
   @Test
@@ -508,10 +508,7 @@ class ResultTest {
       var exception = new Throwable("test");
       var failure = new Failure<>(exception);
 
-      assertThatThrownBy(failure::orElseThrow)
-          .isInstanceOf(UnsupportedThrowableException.class)
-          .extracting(Throwable::getCause)
-          .isSameAs(exception);
+      assertThatThrownBy(failure::orElseThrow).isSameAs(exception);
     }
 
     @Test

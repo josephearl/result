@@ -9,14 +9,14 @@ Instances of `Result<T>` are either an instance of `Success<T>` or `Failure<T>`.
 
 ## Using the library
 
-Requires Java 17. View the [API documentation](https://josephearl.github.io/result/).
+Requires Java 21. View the [API documentation](https://josephearl.github.io/result/).
 
 To use the library add the `https://maven.pkg.github.com/josephearl/result` repository (see
 [Using a published package](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry#using-a-published-package)
 for more information) and the dependency:
 
 ```groovy
-implementation 'com.waracle.result:result:1.0-SNAPSHOT'
+implementation 'uk.co.josephearl.result:result:1.0.0-SNAPSHOT'
 ```
 
 Example:
@@ -31,42 +31,28 @@ Result<Long> result =
 // Simple
 long value = result.orElse(0L);
 
-// Pattern matching for switch (Java 17 preview)
+// Pattern matching for switch
 long patternMatchValue =
     switch (result) {
       case Success<Long> success -> success.value();
-      case Failure<Long> failure -> 0L;
+      case Failure<Long> ignored -> 0L;
     };
 
-// Pattern matching for switch with record patterns (Java 19 preview)
+// Pattern matching for switch with record patterns
 long recordPatternMatchValue =
     switch (result) {
       case Success<Long>(var v) -> v;
-      case Failure<Long>(var e) -> 0L;
-      // Due to a bug in Java 19 this default case is required
-      // https://mail.openjdk.org/pipermail/amber-dev/2022-September/007495.html
-      default -> throw new AssertionError("Can never happen");
+      case Failure<Long>(var ignored) -> 0L;
     };
 ```
 
 ## Developing the library
 
-Requires Java 19.
+Requires Java 21. All commands are run from the root of the project, from a terminal:
 
-To format code, run tests and checks:
-
-```shell
-./gradlew spotlessApply check
-```
-
-To generate documentation:
-
-```shell
-./gradlew javadoc
-```
-
-To publish the library to your local Maven repository:
-
-```shell
-./gradlew publishToMavenLocal
-```
+| Command                         | Action                                             |
+|:--------------------------------|:---------------------------------------------------|
+| `./gradlew build`               | Build and run tests                                |
+| `./gradlew spotlessApply`       | Format code                                        |
+| `./gradlew javadoc`             | Generate documentation                             |
+| `./gradlew publishToMavenLocal` | Publish the library to your local Maven repository |

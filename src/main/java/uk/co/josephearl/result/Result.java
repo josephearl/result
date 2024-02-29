@@ -1,4 +1,4 @@
-package com.waracle.result;
+package uk.co.josephearl.result;
 
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -124,10 +124,9 @@ public sealed interface Result<T> {
 
   /**
    * Returns the value if this is a {@link Success} or throws the {@link Throwable} if this is a
-   * {@link Failure}. {@link Throwable}s that are not {@link Exception}s or {@link Error}s will be
-   * wrapped in an {@link UnsupportedThrowableException}.
+   * {@link Failure}.
    */
-  T orElseThrow() throws Exception;
+  T orElseThrow() throws Throwable;
 
   /**
    * Returns the value if this is a {@link Success} or throws the outcome of applying the given
@@ -330,14 +329,8 @@ public sealed interface Result<T> {
     }
 
     @Override
-    public T orElseThrow() throws Exception {
-      if (exception instanceof Exception e) {
-        throw e;
-      } else if (exception instanceof Error e) {
-        throw e;
-      }
-      throw new UnsupportedThrowableException(
-          "Cannot directly throw " + exception.getClass().getName(), exception);
+    public T orElseThrow() throws Throwable {
+      throw exception;
     }
 
     @Override
