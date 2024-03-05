@@ -5,6 +5,8 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.InstanceOfAssertFactories.type;
 import static org.mockito.Mockito.*;
 
+import io.github.josephearl.result.Result.Failure;
+import io.github.josephearl.result.Result.Success;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.concurrent.Callable;
@@ -16,8 +18,6 @@ import nl.jqno.equalsverifier.EqualsVerifier;
 import nl.jqno.equalsverifier.Warning;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import io.github.josephearl.result.Result.Failure;
-import io.github.josephearl.result.Result.Success;
 
 class ResultTest {
   @Test

@@ -9,7 +9,8 @@ Instances of `Result<T>` are either an instance of `Success<T>` or `Failure<T>`.
 
 ## Using the library
 
-Requires Java 21. View the [API documentation](https://josephearl.github.io/result/).
+Requires Java 17 (Java 21 is required to use pattern matching for switch or record patterns). View the
+[API documentation](https://josephearl.github.io/result/).
 
 To use the library add the `https://maven.pkg.github.com/josephearl/result` repository (see
 [Using a published package](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry#using-a-published-package)
