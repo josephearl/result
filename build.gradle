@@ -89,7 +89,9 @@ publishing {
         }
         developers {
           developer {
+            id = 'josephearl'
             name = 'Joseph Earl'
+            url = 'https://github.com/josephearl/result'
           }
         }
         scm {
