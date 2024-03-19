@@ -58,15 +58,13 @@ spotbugs {
   excludeFilter = file('spotbugs-exclude.xml')
 }
 
-tasks.withType(SpotBugsTask) {
+tasks.withType(SpotBugsTask).configureEach {
   reports {
-    html {
-      enabled = true
-    }
+    html.required = true
   }
 }
 
-tasks.withType(Javadoc) {
+tasks.withType(Javadoc).configureEach {
   options {
     addBooleanOption('Xdoclint:accessibility,html,reference,syntax', true)
     addBooleanOption('Xwerror', true)
