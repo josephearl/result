@@ -89,14 +89,10 @@ publishing {
         }
         developers {
           developer {
-            id = 'josephearl'
             name = 'Joseph Earl'
-            email = 'hello@josephearl.co.uk'
           }
         }
         scm {
-          connection = 'scm:git:https://github.com/josephearl/result.git'
-          developerConnection = 'scm:git:ssh://github.com:josephearl/result.git'
           url = 'https://github.com/josephearl/result'
         }
       }
