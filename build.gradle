@@ -76,8 +76,33 @@ publishing {
   publications {
     mavenJava(MavenPublication) {
       from components.java
+
+      pom {
+        name = 'Result'
+        description = 'Handle errors gracefully in a type-safe, functional manner similar to Kotlin\'s Result type or Scala\'s Try type using Java sealed classes'
+        url = 'https://github.com/josephearl/result'
+        licenses {
+          license {
+            name = 'The Apache License, Version 2.0'
+            url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+          }
+        }
+        developers {
+          developer {
+            id = 'josephearl'
+            name = 'Joseph Earl'
+            email = 'hello@josephearl.co.uk'
+          }
+        }
+        scm {
+          connection = 'scm:git:https://github.com/josephearl/result.git'
+          developerConnection = 'scm:git:ssh://github.com:josephearl/result.git'
+          url = 'https://github.com/josephearl/result'
+        }
+      }
     }
   }
+
   repositories {
     maven {
       name = "GitHubPackages"
