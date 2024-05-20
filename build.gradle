@@ -3,12 +3,13 @@ import com.github.spotbugs.snom.SpotBugsTask
 plugins {
   id 'java-library'
   id 'maven-publish'
+  id 'signing'
   id 'io.freefair.lombok' version '8.6'
   id 'com.diffplug.spotless' version '6.25.0'
   id 'com.github.spotbugs' version '6.0.14'
 }
 
-group 'io.github.josephearl.result'
+group 'io.github.josephearl'
 version '1.0.0-SNAPSHOT'
 
 repositories {
@@ -75,15 +76,51 @@ publishing {
   publications {
     mavenJava(MavenPublication) {
       from components.java
+
+      pom {
+        name = 'Result'
+        description = 'Handle errors gracefully in a type-safe, functional manner similar to Kotlin\'s Result type or Scala\'s Try type using Java sealed classes'
+        url = 'https://github.com/josephearl/result'
+        licenses {
+          license {
+            name = 'The Apache License, Version 2.0'
+            url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+          }
+        }
+        developers {
+          developer {
+            id = 'josephearl'
+            name = 'Joseph Earl'
+            url = 'https://github.com/josephearl/result'
+          }
+        }
+        scm {
+          url = 'https://github.com/josephearl/result'
+        }
+      }
     }
   }
+
   repositories {
     maven {
+      name = "GitHubPackages"
       url = 'https://maven.pkg.github.com/josephearl/result'
       credentials {
         username = System.getenv('GITHUB_ACTOR')
         password = System.getenv('GITHUB_TOKEN')
       }
     }
+    maven {
+      name = "MavenCentral"
+      url = "https://central.sonatype.com/"
+      credentials {
+        username = System.getenv("MAVEN_USERNAME")
+        password = System.getenv("MAVEN_PASSWORD")
+      }
+    }
   }
+}
+
+signing {
+  sign publishing.publications.mavenJava
 }
