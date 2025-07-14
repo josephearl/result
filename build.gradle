@@ -20,7 +20,7 @@ dependencies {
   testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.13.2'
   testImplementation 'org.mockito:mockito-junit-jupiter:5.18.0'
   testImplementation 'org.assertj:assertj-core:3.27.3'
-  testImplementation 'nl.jqno.equalsverifier:equalsverifier:4.0.3'
+  testImplementation 'nl.jqno.equalsverifier:equalsverifier:4.0.5'
 }
 
 java {
