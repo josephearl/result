@@ -19,7 +19,7 @@ dependencies {
   testImplementation 'org.junit.jupiter:junit-jupiter-api:5.13.4'
   testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.13.4'
   testImplementation 'org.mockito:mockito-junit-jupiter:5.19.0'
-  testImplementation 'org.assertj:assertj-core:3.27.4'
+  testImplementation 'org.assertj:assertj-core:3.27.6'
   testImplementation 'nl.jqno.equalsverifier:equalsverifier:4.1'
 }
 
